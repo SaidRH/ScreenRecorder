@@ -1,0 +1,23 @@
+{
+  "name": "screensecorder",
+  "version": "1.0.0",
+  "description": "Simple screen recorder",
+  "main": "main.js",
+  "scripts": {
+      "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/era7imOSS/ScreenRecorder.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/era7imOSS/ScreenRecorder/issues"
+  },
+  "homepage": "https://github.com/era7imOSS/ScreenRecorder#readme",
+  "devDependencies": {
+    "electron": "^11.0.3"
+  }
+}
