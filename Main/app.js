@@ -9,12 +9,12 @@ function createWindow () {
     minHeight:150,
     minWidth:300,
     frame:false,
-    icon:"interface/images/icon.png",
+    icon:"Renderer/images/icon.png",
     webPreferences: {
       nodeIntegration: true
     }
   })
-  win.loadFile('interface/index.html')
+  win.loadFile('Renderer/index.html')
 }
 
 app.whenReady().then(createWindow)
