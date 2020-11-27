@@ -1,26 +1,28 @@
-// In the renderer process.
 const { desktopCapturer } = require('electron')
 
-document.getElementById('record').addEventListener("click", handleStream());
+document.getElementById('record').addEventListener("click", function(){ console.log("record")});
 document.getElementById('stop').addEventListener("click", function(){ console.log("stop")});
-
+const constraints = {
+  audio: {
+    mandatory: {
+      chromeMediaSource: 'desktop'
+    }
+  },
+  video: {
+    mandatory: {
+      chromeMediaSource: 'desktop',
+      minWidth: 400,
+      maxWidth: 400,
+      minHeight: 400,
+      maxHeight: 400
+    }
+  }
+}
 desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
   for (const source of sources) {
-    if (source.name === 'Electron') {
+    if (source.name === 'Screen Recorder') {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          audio: false,
-          video: {
-            mandatory: {
-              chromeMediaSource: 'desktop',
-              chromeMediaSourceId: source.id,
-              minWidth: 1280,
-              maxWidth: 1280,
-              minHeight: 720,
-              maxHeight: 720
-            }
-          }
-        })
+        const stream = await navigator.mediaDevices.getUserMedia(constraints)
         handleStream(stream)
       } catch (e) {
         handleError(e)
