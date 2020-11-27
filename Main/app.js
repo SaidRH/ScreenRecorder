@@ -8,7 +8,7 @@ function createWindow () {
     maxWidth:600,
     minHeight:1000,
     minWidth:600,
-    frame:false,
+    frame:true,
     transparent:true,
     icon:"Renderer/images/icon.png",
     webPreferences: {
