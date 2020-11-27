@@ -13,8 +13,8 @@
 
 # Download  
 
-<a href="" rel="nofollow">Windows</a>
-<a href="" rel="nofollow">MacOs</a>
+<a href="" rel="nofollow">Windows</a>  
+<a href="" rel="nofollow">MacOs</a>  
 <a href="" rel="nofollow">Linux</a>
 
 
