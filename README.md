@@ -1,4 +1,4 @@
-# Screen Recorder
+# Screen Recorder --in progress--
 <p align="center">
 <img src="https://github.com/era7imOSS/ScreenRecorder/blob/main/Interface/images/icon.png" width="150" > 
 </p>
@@ -14,6 +14,8 @@
 # Download  
 
 <a href="" rel="nofollow">Windows</a>
+<a href="" rel="nofollow">MacOs</a>
+<a href="" rel="nofollow">Linux</a>
 
 
 
