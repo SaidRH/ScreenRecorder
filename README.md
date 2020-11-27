@@ -4,6 +4,8 @@ Simple screen recorder
 <img src="https://github.com/era7imOSS/ScreenRecorder/blob/main/Interface/images/icon.png" width="150" > 
 </p>
 
+# Demo
+
 <p align="center">
 <strong>Screen Recorder - Simple screen recorder.</strong>
 </p>
