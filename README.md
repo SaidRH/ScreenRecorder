@@ -18,8 +18,8 @@
 <a href="" rel="nofollow">Linux</a>
 
 # Contribute  
-<p align="center">
-<strong>We :heart: Contributors Like You!.</strong> 
+<p>
+<strong>We :heart: Contributors Like You!.  </strong>     
 create pull request and will review your code! 
 </p> 
 
