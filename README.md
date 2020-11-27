@@ -19,7 +19,7 @@
 
 # Contribute  
 <p>
-We :heart: Contributors Like You!.       
+<strong>We :heart: Contributors Like You!. </strong>      
 </p> 
 <p>
 create pull request and will review your code.
