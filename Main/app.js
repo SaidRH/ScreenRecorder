@@ -9,6 +9,7 @@ function createWindow () {
     minHeight:150,
     minWidth:300,
     frame:false,
+    transparent:true,
     icon:"Renderer/images/icon.png",
     webPreferences: {
       nodeIntegration: true
