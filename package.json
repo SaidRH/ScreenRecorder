@@ -1,8 +1,8 @@
 {
-  "name": "screensecorder",
+  "name": "screenrecorder",
   "version": "1.0.0",
   "description": "Simple screen recorder",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
       "start": "electron ."
   },
