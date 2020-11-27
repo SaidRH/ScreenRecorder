@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 10px;
 }
 
 .container{
@@ -31,6 +33,6 @@ float: left;
 }
 
 button:hover{
-color: white;
-background-color: #e2574c;
+    color: white;
+    background-color: #e2574c;
 }
