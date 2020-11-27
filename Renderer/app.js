@@ -1,88 +1,82 @@
-const { desktopCapturer } = require('electron')
+var fs = require('fs');
+const electron = require('electron');
+const app = require('app');
+const BrowserWindow = require('browser-window')
 
-document.getElementById('record').addEventListener("click", function(){recordVideo();});
-document.getElementById('stop').addEventListener("click", function(){stopVideo();});
+var { desktopCapturer } = require('electron');
+var recorder, blobs = [];
 
+document.getElementById('record').addEventListener("click", function(){startRecord();});
+document.getElementById('stop').addEventListener("click", function(){stopRecording();});
 
-function recordVideo(){
-  const constraints = {
-    audio: {
-      mandatory: {
-        chromeMediaSource: 'desktop'
-      }
-    },
-    video: {
-      mandatory: {
-        chromeMediaSource: 'desktop',
-        minWidth: 600,
-        maxWidth: 600,
-        minHeight: 400,
-        maxHeight: 400
-      }
-    }
-  }
-  desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
-    for (const source of sources) {
-      if (source.name === 'Screen Recorder') {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia(constraints)
-          handleStream(stream)
-        } catch (e) {
-          handleError(e)
-        }
+var startRecord = function () {
+    console.log('started');
+    desktopCapturer.getSources({types: ['window', 'screen']}, function(error) {
+        if (error) throw error;
+        navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: {
+                mandatory: {
+                    chromeMediaSource: 'desktop'
+                },
+            },
+            frameRate: {
+                min: 145,
+                max: 500
+            }
+        })
+        .then((stream) => handleStream(stream))
+        .catch((e) => handleError(e))
         return
-      }
-    }
-  })
-  
-  function handleStream (stream) {
-    const video = document.querySelector('video')
-    video.srcObject = stream
-    video.onloadedmetadata = (e) => video.play()
-  }
-  
-  function handleError (e) {
-    console.log(e)
-  }
+    });
+};
+
+function handleError(err) {
+    console.log('something went wrong but it shouldnt');
 }
-function stopVideo(){
-  const constraints = {
-    audio: {
-      mandatory: {
-        chromeMediaSource: 'desktop'
-      }
-    },
-    video: {
-      mandatory: {
-        chromeMediaSource: 'desktop',
-        minWidth: 600,
-        maxWidth: 600,
-        minHeight: 400,
-        maxHeight: 400
-      }
+
+function handleStream(stream) {
+    recorder = new MediaRecorder(stream);
+    blobs = [];
+    recorder.ondataavailable = function (event) {
+        blobs.push(event.data);
+    };
+    recorder.start();
+}
+
+function toArrayBuffer(blob, cb) {
+    var fileReader = new FileReader();
+    fileReader.onload = function() {
+        var arrayBuffer = this.result;
+        cb(arrayBuffer);
+    };
+    fileReader.readAsArrayBuffer(blob);
+}
+
+function toBuffer(ab) {
+    var buffer = new Buffer(ab.byteLength);
+    var arr = new Uint8Array(ab);
+    for (var i = 0; i < arr.byteLength; i++) {
+        buffer[i] = arr[i];
     }
-  }
-  desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
-    for (const source of sources) {
-      if (source.name === 'Screen Recorder') {
-        try {
-          const stream = await navigator.mediaDevices.getUserMedia(constraints)
-          handleStream(stream)
-        } catch (e) {
-          handleError(e)
-        }
-        return
-      }
-    }
-  })
-  
-  function handleStream (stream) {
-    const video = document.querySelector('video')
-    video.srcObject = stream
-    video.onloadedmetadata = (e) => video.pause()
-  }
-  
-  function handleError (e) {
-    console.log(e)
-  }
+    return buffer;
+}
+
+function stopRecording() {
+    var save = function() {
+        console.log(blobs);
+        toArrayBuffer(new Blob(blobs, {type: 'video/webm'}), function(ab) {
+            console.log(ab);
+            var buffer = toBuffer(ab);
+            var file = `./videos/example.webm`;
+            fs.writeFile(file, buffer, function(err) {
+                if (err) {
+                    console.error('Failed to save video ' + err);
+                } else {
+                    console.log('Saved video: ' + file);
+                }
+            });
+        });
+    };
+    recorder.stop();
 }
