@@ -4,7 +4,7 @@
   "description": "Simple screen recorder",
   "main": "Main/app.js",
   "scripts": {
-      "start": "electron ."
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/era7imOSS/ScreenRecorder#readme",
   "devDependencies": {
     "electron": "^11.0.3"
+  },
+  "dependencies": {
+    "videojs-record": "^4.1.1"
   }
 }
