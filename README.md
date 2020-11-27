@@ -1,7 +1,7 @@
 # Screen Recorder
 Simple screen recorder
 <p align="center">
-<img src="" width="150" > 
+<img src="https://github.com/era7imOSS/ScreenRecorder/blob/main/Interface/images/icon.png" width="150" > 
 </p>
 
 <p align="center">
