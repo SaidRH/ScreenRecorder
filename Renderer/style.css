@@ -12,15 +12,25 @@
 }
 
 button{
-    color: white;
+    color: #e2574c;
+    font-weight: bold;
     background-color: white;
-    margin: auto;
     width: 50px;
     height: 50px;
     border-radius: 10px;
     border: #e2574c 2px solid;
+    margin: 50px;
+}
+
+#record{
+float: left;
+}
+
+#stop{
+    float: right;
 }
 
 button:hover{
+color: white;
 background-color: #e2574c;
 }
