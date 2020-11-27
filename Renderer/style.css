@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+button{
+    color: white;
+    margin: auto 10px;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-radius: 10px;
+    border: white 2px solid;
+}
+
+button:hover{
+background-color: blue;
+}
