@@ -1,89 +1,77 @@
 
+const fs = require('fs');
+const { desktopCapturer, ipcRenderer } = require('electron');
+let recorder, blobs = [];
 
+document.getElementById('record').addEventListener("click", function () { startRecord(); });
+document.getElementById('stop').addEventListener("click", function () { stopRecord('./videos/example.webm'); });
 
-var fs = require('fs');
-var electron = require('electron');
-
-var SECRET_KEY = 'Screen Recorder';
-
-var recorder;
-var blobs = [];
-
-document.getElementById('record').addEventListener("click", function(){recordVideo();});
-document.getElementById('stop').addEventListener("click", function(){stopVideo();});
-
-
-function startRecording() {
-    var title = document.title;
-    document.title = SECRET_KEY;
-
-    electron.desktopCapturer.getSources({ types: ['window', 'screen'] }, function(error, sources) {
-        if (error) throw error;
-        for (let i = 0; i < sources.length; i++) {
-            let src = sources[i];
-            if (src.name === SECRET_KEY) {
-                document.title = title;
-
-                navigator.webkitGetUserMedia({
-                    audio: false,
-                    video: {
-                        mandatory: {
-                            chromeMediaSource: 'desktop',
-                            chromeMediaSourceId: src.id,
-                            minWidth: 800,
-                            maxWidth: 1280,
-                            minHeight: 600,
-                            maxHeight: 720
-                        }
+function startRecord() {
+    desktopCapturer.getSources({ types: ['window', 'screen'] })
+        .then(async () => {
+            const stream = await navigator.webkitGetUserMedia({
+                audio: false,
+                video: {
+                    mandatory: {
+                        chromeMediaSource: 'desktop',
+                        minWidth: 1280,
+                        maxWidth: 1280,
+                        minHeight: 720,
+                        maxHeight: 720
                     }
-                }, handleStream, handleUserMediaError);
-                return;
-            }
-        }
-    });
+                },
+                frameRate: {
+                    min: 50,
+                    ideal: 200,
+                    max: 600
+                }
+            }, this.handleStream, err => {
+                console.log('error', err);
+            });
+        })
+        .catch(error => console.log(error))
 }
 
 function handleStream(stream) {
     recorder = new MediaRecorder(stream);
     blobs = [];
-    recorder.ondataavailable = function(event) {
+    recorder.ondataavailable = function (event) {
         blobs.push(event.data);
     };
     recorder.start();
 }
 
-function stopRecording() {
-    recorder.stop();
-    toArrayBuffer(new Blob(blobs, {type: 'video/webm'}), function(ab) {
-        var buffer = toBuffer(ab);
-        var file = `./videos/example.webm`;
-        fs.writeFile(file, buffer, function(err) {
-            if (err) {
-                console.error('Failed to save video ' + err);
-            } else {
-                console.log('Saved video: ' + file);
-            }
-        });
-    });
-}
-
-function handleUserMediaError(e) {
-    console.error('handleUserMediaError', e);
-}
-
 function toArrayBuffer(blob, cb) {
-    let fileReader = new FileReader();
-    fileReader.onload = function() {
-        let arrayBuffer = this.result;
+    const fileReader = new FileReader();
+    fileReader.onload = function () {
+        const arrayBuffer = this.result;
         cb(arrayBuffer);
     };
     fileReader.readAsArrayBuffer(blob);
 }
 
 function toBuffer(ab) {
-    return Buffer.from(ab);
+    const buffer = new Buffer(ab.byteLength);
+    const arr = new Uint8Array(ab);
+    for (let i = 0; i < arr.byteLength; i++) {
+        buffer[i] = arr[i];
+    }
+    return buffer;
 }
 
-// Record for 7 seconds and save to disk
-startRecording();
-setTimeout(function() { stopRecording() }, 7000);
+function stopRecord(userPath) {
+    recorder.onstop = () => {
+        this.toArrayBuffer(new Blob(blobs, { type: 'video/webm' }), (chunk) => {
+            const buffer = this.toBuffer(chunk);
+            const path = userPath;
+            fs.writeFile(path, buffer, function (err) {
+                if (!err) {
+                    console.log('Saved video: ' + path);
+                } else {
+                    alert('Failed to save video ' + err);
+                }
+            });
+        });
+    };
+    recorder.stop();
+}
