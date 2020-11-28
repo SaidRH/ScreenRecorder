@@ -12,6 +12,9 @@
 This is how it looks like at this moments but it's working
 </p> 
 
+<p align="center">
+<strong>This is how it looks like at this moments but it's working</strong>
+</p> 
 # Download  
 
 <a href="" rel="nofollow">Windows</a>  
