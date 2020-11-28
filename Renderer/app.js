@@ -60,7 +60,7 @@ function toBuffer(ab) {
 
 function stopRecord(userPath) {
     recorder.onstop = () => {
-        this.toArrayBuffer(new Blob(blobs, { type: 'video/webm' }), (chunk) => {
+        this.toArrayBuffer(new Blob(blobs, { type: 'video/mp4' }), (chunk) => {
             const buffer = this.toBuffer(chunk);
             const path = userPath;
             fs.writeFile(path, buffer, function (err) {
