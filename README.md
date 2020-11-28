@@ -9,6 +9,7 @@
 # Demo
 <p align="center">
 <img src="https://github.com/era7imOS/ScreenRecorder/demo.png" width="600">  
+<strong>This is how it looks like at this moments but it's working</strong>
 </p> 
 
 # Download  
