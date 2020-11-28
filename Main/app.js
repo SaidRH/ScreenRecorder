@@ -1,16 +1,21 @@
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {
+function createWindow() {
   const win = new BrowserWindow({
-    width: 1000,
-    height: 600,
-    icon:"Renderer/images/icon.png",
+    width: 300,
+    height: 150,
+    maxHeight: 150,
+    maxWidth: 300,
+    minHeight: 150,
+    minWidth: 300,
+    frame: false,
+    transparent: true,
+    icon: "Renderer/images/icon.png",
     webPreferences: {
       nodeIntegration: true
     }
   })
   win.loadFile('Renderer/index.html')
-  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
