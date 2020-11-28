@@ -3,7 +3,7 @@ const { desktopCapturer, ipcRenderer } = require('electron');
 let recorder, blobs = [];
 
 document.getElementById('record').addEventListener("click", function () { startRecord(); });
-document.getElementById('stop').addEventListener("click", function () { stopRecord('./videos/test.webm'); });
+document.getElementById('stop').addEventListener("click", function () { stopRecord('./videos/test.mp4'); });
 
 function startRecord() {
     desktopCapturer.getSources({ types: ['window', 'screen'] })
