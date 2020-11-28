@@ -1,10 +1,9 @@
-
 const fs = require('fs');
 const { desktopCapturer, ipcRenderer } = require('electron');
 let recorder, blobs = [];
 
 document.getElementById('record').addEventListener("click", function () { startRecord(); });
-document.getElementById('stop').addEventListener("click", function () { stopRecord('./videos/example.webm'); });
+document.getElementById('stop').addEventListener("click", function () { stopRecord('./videos/test.webm'); });
 
 function startRecord() {
     desktopCapturer.getSources({ types: ['window', 'screen'] })
