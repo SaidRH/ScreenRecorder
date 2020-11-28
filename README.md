@@ -1,4 +1,4 @@
-# Screen Recorder :construction: work in progress
+# Screen Recorder :construction: WIP
 <p align="center">
 <img src="https://github.com/era7imOSS/ScreenRecorder/blob/main/Renderer/images/icon.png" width="150" > 
 </p>
