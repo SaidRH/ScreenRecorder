@@ -14,10 +14,10 @@ function recordVideo(){
     video: {
       mandatory: {
         chromeMediaSource: 'desktop',
-        minWidth: 600,
-        maxWidth: 600,
-        minHeight: 400,
-        maxHeight: 400
+        minWidth: 800,
+        maxWidth: 800,
+        minHeight: 600,
+        maxHeight: 600
       }
     }
   }
@@ -55,10 +55,10 @@ function stopVideo(){
     video: {
       mandatory: {
         chromeMediaSource: 'desktop',
-        minWidth: 600,
-        maxWidth: 600,
-        minHeight: 400,
-        maxHeight: 400
+        minWidth: 800,
+        maxWidth: 800,
+        minHeight: 600,
+        maxHeight: 600
       }
     }
   }
