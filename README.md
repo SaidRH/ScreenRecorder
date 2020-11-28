@@ -8,7 +8,7 @@
 
 # Demo
 <p align="center">
-<img src="https://github.com/era7imOS/ScreenRecorder/blob/demo.png" width="600">  
+<img src="https://github.com/era7imOS/ScreenRecorder/blob/main/demo.png" width="600">  
 </p> 
 
 # Download  
