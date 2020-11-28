@@ -9,7 +9,6 @@
 # Demo
 <p align="center">
 <img src="https://github.com/era7imOS/ScreenRecorder/blob/main/demo.png" width="300">  
-This is how it looks like at this moments but it's working
 </p> 
 
 <p align="center">
