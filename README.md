@@ -1,6 +1,6 @@
 # Screen Recorder (🚧 WIP)
 <p align="center">
-<img src="https://github.com/era7imOSS/ScreenRecorder/blob/main/Renderer/images/icon.png" width="150" > 
+<img src="https://github.com/era7imOS/ScreenRecorder/blob/main/Renderer/images/icon.png" width="150" > 
 </p>
 <p align="center">
 <strong>Screen Recorder - Simple screen recorder.</strong>
@@ -8,7 +8,7 @@
 
 # Demo
 <p align="center">
-<img src="" width="600">  
+<img src="https://github.com/era7imOS/ScreenRecorder/demo.png" width="600">  
 </p> 
 
 # Download  
