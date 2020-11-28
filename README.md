@@ -12,7 +12,7 @@
 </p> 
 
 <p align="center">
-<strong>⚠️ This is how it looks like at this moments but it's working ⚠️</strong>
+<strong>⚠️ This is how it looks like at this moments but it's working<a href="https://github.com/era7imOS/ScreenRecorder/raw/main/videos/test.webm" rel="nofollow">see preview</a>⚠️</strong>
 </p> 
 
 # Download  
