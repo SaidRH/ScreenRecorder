@@ -1,12 +1,21 @@
 const fs = require('fs');
-const { desktopCapturer, ipcRenderer } = require('electron');
+const {
+    desktopCapturer,
+    ipcRenderer
+} = require('electron');
 let recorder, blobs = [];
 
-document.getElementById('record').addEventListener("click", function () { startRecord(); });
-document.getElementById('stop').addEventListener("click", function () { stopRecord('./videos/test.mp4'); });
+document.getElementById('record').addEventListener("click", function() {
+    startRecord();
+});
+document.getElementById('stop').addEventListener("click", function() {
+    stopRecord('./videos/test.mp4');
+});
 
 function startRecord() {
-    desktopCapturer.getSources({ types: ['window', 'screen'] })
+    desktopCapturer.getSources({
+            types: ['window', 'screen']
+        })
         .then(async () => {
             const stream = await navigator.webkitGetUserMedia({
                 audio: false,
@@ -34,7 +43,7 @@ function startRecord() {
 function handleStream(stream) {
     recorder = new MediaRecorder(stream);
     blobs = [];
-    recorder.ondataavailable = function (event) {
+    recorder.ondataavailable = function(event) {
         blobs.push(event.data);
     };
     recorder.start();
@@ -42,7 +51,7 @@ function handleStream(stream) {
 
 function toArrayBuffer(blob, cb) {
     const fileReader = new FileReader();
-    fileReader.onload = function () {
+    fileReader.onload = function() {
         const arrayBuffer = this.result;
         cb(arrayBuffer);
     };
@@ -60,10 +69,12 @@ function toBuffer(ab) {
 
 function stopRecord(userPath) {
     recorder.onstop = () => {
-        this.toArrayBuffer(new Blob(blobs, { type: 'video/mp4' }), (chunk) => {
+        this.toArrayBuffer(new Blob(blobs, {
+            type: 'video/mp4'
+        }), (chunk) => {
             const buffer = this.toBuffer(chunk);
             const path = userPath;
-            fs.writeFile(path, buffer, function (err) {
+            fs.writeFile(path, buffer, function(err) {
                 if (!err) {
                     console.log('Saved video: ' + path);
                 } else {
