@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,14 +6,14 @@
     font-size: 10px;
 }
 
-.container{
-    width: 300px; 
-    height: 150px; 
+.container {
+    width: 300px;
+    height: 150px;
     border-radius: 10px;
     background-color: #0079d7;
 }
 
-button{
+button {
     color: #e2574c;
     font-weight: bold;
     background-color: white;
@@ -24,15 +24,15 @@ button{
     margin: 50px;
 }
 
-#record{
-float: left;
+#record {
+    float: left;
 }
 
-#stop{
+#stop {
     float: right;
 }
 
-button:hover{
+button:hover {
     color: white;
     background-color: #e2574c;
 }
