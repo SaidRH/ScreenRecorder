@@ -50,7 +50,7 @@ function toArrayBuffer(blob, cb) {
 }
 
 function toBuffer(ab) {
-    const buffer = new Buffer(ab.byteLength);
+    const buffer = new Buffer.alloc(ab.byteLength);
     const arr = new Uint8Array(ab);
     for (let i = 0; i < arr.byteLength; i++) {
         buffer[i] = arr[i];
