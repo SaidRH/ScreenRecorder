@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/era7imOSS/ScreenRecorder#readme",
   "devDependencies": {
-    "electron": "^11.0.3"
+    "electron": "^11.0.3",
+    "electron-winstaller": "^4.0.1"
   },
   "dependencies": {
     "app": "^0.1.0",
