@@ -12,7 +12,8 @@ function createWindow() {
     transparent: true,
     icon: "Renderer/images/icon.png",
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation:true
     }
   })
   win.loadFile('Renderer/index.html')
