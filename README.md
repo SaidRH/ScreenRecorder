@@ -22,12 +22,8 @@
 <a href="https://github.com/SaidRH/ScreenRecorder/issues/2" rel="nofollow">Linux</a>
 
 # Contribute  
-<p>
-<strong>We :heart: Contributors Like You!. </strong>      
-</p> 
-<p>
-Create pull request and will review your code.
-</p> 
+
+See [issues](https://github.com/SaidRH/ScreenRecorder/issues)
 
 
 
