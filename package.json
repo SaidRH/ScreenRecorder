@@ -1,28 +1,66 @@
 {
-  "name": "screenrecorder",
-  "version": "1.0.0",
-  "description": "Simple screen recorder",
-  "main": "Main/app.js",
-  "scripts": {
-    "start": "electron ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/era7imOSS/ScreenRecorder.git"
-  },
-  "keywords": [],
-  "author": "era7imOSS",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/era7imOSS/ScreenRecorder/issues"
-  },
-  "homepage": "https://github.com/era7imOSS/ScreenRecorder#readme",
-  "devDependencies": {
-    "electron": "^11.0.3",
-    "electron-winstaller": "^4.0.1"
-  },
-  "dependencies": {
-    "app": "^0.1.0",
-    "fs": "0.0.1-security"
-  }
+    "name": "screenrecorder",
+    "version": "1.0.0",
+    "description": "Simple screen recorder",
+    "main": "Main/app.js",
+    "build": {
+        "appID": "screenrecorder",
+        "productName": "Screen Recorder",
+        "icon": "Renderer/images/icon.icon"
+    },
+    "scripts": {
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/era7imOSS/ScreenRecorder.git"
+    },
+    "keywords": [],
+    "author": "era7imOSS",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/era7imOSS/ScreenRecorder/issues"
+    },
+    "homepage": "https://github.com/era7imOSS/ScreenRecorder#readme",
+    "devDependencies": {
+        "@electron-forge/cli": "^6.0.0-beta.54",
+        "@electron-forge/maker-deb": "^6.0.0-beta.54",
+        "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+        "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+        "@electron-forge/maker-zip": "^6.0.0-beta.54",
+        "electron": "^11.0.3"
+    },
+    "dependencies": {
+        "app": "^0.1.0",
+        "electron-squirrel-startup": "^1.0.0",
+        "fs": "0.0.1-security"
+    },
+    "config": {
+        "forge": {
+            "packagerConfig": {},
+            "makers": [{
+                    "name": "@electron-forge/maker-squirrel",
+                    "config": {
+                        "name": "screenrecorder"
+                    }
+                },
+                {
+                    "name": "@electron-forge/maker-zip",
+                    "platforms": [
+                        "darwin"
+                    ]
+                },
+                {
+                    "name": "@electron-forge/maker-deb",
+                    "config": {}
+                },
+                {
+                    "name": "@electron-forge/maker-rpm",
+                    "config": {}
+                }
+            ]
+        }
+    }
 }
