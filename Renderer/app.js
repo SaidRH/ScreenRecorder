@@ -8,6 +8,7 @@ let recorder, blobs = [];
 document.getElementById('record').addEventListener("click", function() {
     startRecord();
 });
+
 document.getElementById('stop').addEventListener("click", function() {
     stopRecord('./videos/test.mp4');
 });
@@ -22,14 +23,14 @@ function startRecord() {
                 video: {
                     mandatory: {
                         chromeMediaSource: 'desktop',
-                        minWidth: 1280,
-                        maxWidth: 1280,
-                        minHeight: 720,
-                        maxHeight: 720
+                        minWidth: 3840,
+                        maxWidth: 3840,
+                        minHeight: 2160,
+                        maxHeight: 2160
                     }
                 },
                 frameRate: {
-                    min: 50,
+                    min: 100,
                     ideal: 200,
                     max: 600
                 }
