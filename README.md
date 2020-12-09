@@ -18,8 +18,8 @@
 # Download  
 
 <a href="" rel="nofollow">Windows</a>  
-<a href="" rel="nofollow">MacOs</a>  
-<a href="" rel="nofollow">Linux</a>
+<a href="https://github.com/SaidRH/ScreenRecorder/issues/1" rel="nofollow">MacOs</a>  
+<a href="https://github.com/SaidRH/ScreenRecorder/issues/2" rel="nofollow">Linux</a>
 
 # Contribute  
 <p>
