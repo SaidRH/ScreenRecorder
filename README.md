@@ -1,4 +1,4 @@
-# Screen Recorder (🚧 WIP)
+# Screen Recorder (🚧 WIP 🚧)
 <p align="center">
 <img src="https://github.com/era7imOS/ScreenRecorder/blob/main/Renderer/images/icon.png" width="150" > 
 </p>
